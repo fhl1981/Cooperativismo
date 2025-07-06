@@ -1,0 +1,263 @@
+// Controle de navegação entre páginas
+function showPage(pageId) {
+    // Ocultar todas as páginas
+    const pages = document.querySelectorAll('.page');
+    pages.forEach(page => page.classList.remove('active'));
+    
+    // Mostrar página selecionada
+    document.getElementById(pageId).classList.add('active');
+    
+    // Atualizar links ativos
+    const navLinks = document.querySelectorAll('.nav-links a');
+    navLinks.forEach(link => link.classList.remove('active'));
+    event.target.classList.add('active');
+    
+    // Fechar menu mobile se estiver aberto
+    const navLinks2 = document.querySelector('.nav-links');
+    navLinks2.classList.remove('active');
+    
+    // Rolar para o topo
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Toggle do menu mobile
+function toggleMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.classList.toggle('active');
+}
+
+// Validação do formulário
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    let isValid = true;
+    const formGroups = document.querySelectorAll('.form-group');
+    
+    // Remover classes de erro anteriores
+    formGroups.forEach(group => group.classList.remove('error'));
+    
+    // Validar nome
+    const name = document.getElementById('name').value.trim();
+    if (name.length < 2) {
+        document.getElementById('name').parentElement.classList.add('error');
+        isValid = false;
+    }
+    
+    // Validar e-mail
+    const email = document.getElementById('email').value.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        document.getElementById('email').parentElement.classList.add('error');
+        isValid = false;
+    }
+    
+    // Validar telefone (se preenchido)
+    const phone = document.getElementById('phone').value.trim();
+    if (phone && phone.length < 10) {
+        document.getElementById('phone').parentElement.classList.add('error');
+        isValid = false;
+    }
+    
+    // Validar assunto
+    const subject = document.getElementById('subject').value.trim();
+    if (subject.length < 3) {
+        document.getElementById('subject').parentElement.classList.add('error');
+        isValid = false;
+    }
+    
+    // Validar mensagem
+    const message = document.getElementById('message').value.trim();
+    if (message.length < 10) {
+        document.getElementById('message').parentElement.classList.add('error');
+        isValid = false;
+    }
+    
+    if (isValid) {
+        // Simular envio
+        const submitBtn = document.querySelector('.btn-submit');
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Enviando...';
+        
+        setTimeout(() => {
+            alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+            document.getElementById('contactForm').reset();
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Enviar Mensagem';
+        }, 2000);
+    }
+});
+
+// Botão voltar ao topo
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Mostrar/ocultar botão voltar ao topo
+window.addEventListener('scroll', function() {
+    const backToTop = document.querySelector('.back-to-top');
+    if (window.pageYOffset > 300) {
+        backToTop.classList.add('visible');
+    } else {
+        backToTop.classList.remove('visible');
+    }
+});
+
+// Efeito de paralaxe no hero
+window.addEventListener('scroll', function() {
+    const hero = document.querySelector('.hero');
+    if (hero) {
+        const scrolled = window.pageYOffset;
+        const speed = 0.5;
+        hero.style.transform = `translateY(${scrolled * speed}px)`;
+    }
+});
+
+// Animação de entrada dos elementos
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.animation = 'slideInUp 0.8s ease forwards';
+        }
+    });
+}, observerOptions);
+
+// Observar elementos para animação
+document.querySelectorAll('.content-section, .ramo-card, .principio-item, .timeline-item').forEach(el => {
+    observer.observe(el);
+});
+
+// Efeito de digitação no título principal
+function typeWriter(element, text, speed = 100) {
+    let i = 0;
+    element.innerHTML = '';
+    
+    function type() {
+        if (i < text.length) {
+            element.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+        }
+    }
+    
+    type();
+}
+
+// Aplicar efeito de digitação quando a página carrega
+window.addEventListener('load', function() {
+    const heroTitle = document.querySelector('.hero h1');
+    if (heroTitle) {
+        const originalText = heroTitle.textContent;
+        typeWriter(heroTitle, originalText, 80);
+    }
+});
+
+// Contador animado para estatísticas (se necessário)
+function animateValue(element, start, end, duration) {
+    let startTimestamp = null;
+    const step = (timestamp) => {
+        if (!startTimestamp) startTimestamp = timestamp;
+        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+        element.innerHTML = Math.floor(progress * (end - start) + start);
+        if (progress < 1) {
+            window.requestAnimationFrame(step);
+        }
+    };
+    window.requestAnimationFrame(step);
+}
+
+// Melhorar acessibilidade
+document.addEventListener('keydown', function(e) {
+    // Navegação por teclado
+    if (e.key === 'Escape') {
+        // Fechar menu mobile
+        document.querySelector('.nav-links').classList.remove('active');
+    }
+});
+
+// Adicionar foco visível para navegação por teclado
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Tab') {
+        document.body.classList.add('keyboard-nav');
+    }
+});
+
+document.addEventListener('mousedown', function() {
+    document.body.classList.remove('keyboard-nav');
+});
+
+// Lazy loading para imagens
+if ('IntersectionObserver' in window) {
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.classList.remove('lazy');
+                observer.unobserve(img);
+            }
+        });
+    });
+
+    document.querySelectorAll('img[data-src]').forEach(img => {
+        imageObserver.observe(img);
+    });
+}
+
+// Adicionar suporte a gestos touch para mobile
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener('touchstart', function(e) {
+    touchStartX = e.changedTouches[0].screenX;
+});
+
+document.addEventListener('touchend', function(e) {
+    touchEndX = e.changedTouches[0].screenX;
+    handleGesture();
+});
+
+function handleGesture() {
+    const swipeThreshold = 50;
+    const diff = touchStartX - touchEndX;
+    
+    if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0) {
+            // Swipe left - próxima página
+            // Implementar lógica se necessário
+        } else {
+            // Swipe right - página anterior
+            // Implementar lógica se necessário
+        }
+    }
+}
+
+// Adicionar suporte PWA básico
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', function() {
+        // Registrar service worker se disponível
+        // navigator.serviceWorker.register('/sw.js');
+    });
+}
+
+// Melhorar performance
+const debounce = (func, wait) => {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+};
+
+// Aplicar debounce ao scroll
+window.addEventListener('scroll', debounce(() => {
+    // Lógica de scroll otimizada
+}, 10));
