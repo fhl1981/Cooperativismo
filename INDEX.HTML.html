@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dia Internacional do Cooperativismo - Princípios, valores e história do movimento cooperativista mundial">
+    <meta name="keywords" content="cooperativismo, cooperativas, solidariedade, dia internacional, princípios, valores, história">
+    <meta name="author" content="Cooperativismo Brasil">
+    <meta property="og:title" content="Dia Internacional do Cooperativismo">
+    <meta property="og:description" content="Conheça a história, princípios e valores do cooperativismo mundial">
+    <meta property="og:type" content="website">
+    <title>Dia Internacional do Cooperativismo</title>
+    
+    <!-- CSS Principal -->
+    <style>
+        /* Reset e Configurações Gerais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        /* Container Principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            background: white;
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+            min-height: 100vh;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #2c5aa0 0%, #3d6cb9 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo::before {
+            content: "🤝";
+            font-size: 2rem;
+        }
+
+        /* Navegação */
+        nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Menu Mobile */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Páginas */
+        .page {
+            display: none;
+            padding: 2rem 0;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Seção Hero */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
+            margin: -2rem -20px 2rem -20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-100px); }
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Conteúdo das Páginas */
+        .page-content {
+            padding: 2rem 0;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            color: #2c5aa0;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .page-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .content-section {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .content-section:hover {
+            transform: translateY(-5px);
+        }
+
+        .content-section h2 {
+            color: #2c5aa0;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .content-section h3 {
+            color: #3d6cb9;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .content-section p {
+            text-align: justify;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Imagens */
+        .content-image {
+            width: 100%;
+            max-width: 500px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin: 2rem auto;
+            display: block;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .content-image:hover {
+            transform: scale(1.05);
+        }
+
+        /* Ramos do Cooperativismo */
+        .ramos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .ramo-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-left: 5px solid #667eea;
+        }
+
+        .ramo-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .ramo-card h3 {
+            color: #2c5aa0;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .ramo-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Princípios */
+        .principios-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .principio-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-left: 4px solid #667eea;
+        }
+
+        .principio-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+
+        .principio-item h4 {
+            color: #2c5aa0;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        /* Timeline História */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, #667eea, #764ba2);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding: 0 2rem;
+        }
+
+        .timeline-item:nth-child(odd) {
+            text-align: right;
+            padding-right: 50%;
+        }
+
+        .timeline-item:nth-child(even) {
+            text-align: left;
+            padding-left: 50%;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: #667eea;
+            border-radius: 50%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 4px solid white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .timeline-year {
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Formulário de Contato */
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 2rem auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #2c5aa0;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+        }
+
+        .form-group.error input,
+        .form-group.error textarea {
+            border-color: #e74c3c;
+        }
+
+        .error-message {
+            color: #e74c3c;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        .form-group.error .error-message {
+            display: block;
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            font-weight: 500;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-submit:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c5aa0;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        /* Botão de Voltar ao Topo */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: none;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .back-to-top.visible {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #2c5aa0;
+                padding: 1rem;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .ramos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .principios-list {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                padding-left: 60px;
+                padding-right: 1rem;
+                text-align: left;
+            }
+
+            .timeline-item:nth-child(odd) {
+                padding-left: 60px;
+                padding-right: 1rem;
+                text-align: left;
+            }
+
+            .timeline-item::before {
+                left: 20px;
+                transform: translateX(-50%);
+            }
+
+            .content-section {
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 10px;
+            }
+
+            .hero {
+                margin: -2rem -10px 2rem -10px;
+                padding: 2rem 1rem;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .page-title {
+                font-size: 1.5rem;
+            }
+
+            .content-section {
+                padding: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .contact-form {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="header-content">
+                <div class="logo">
+                    <span>Cooperativismo</span>
+                </div>
+                <nav>
+                    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+                    <ul class="nav-links">
+                        <li><a href="#" onclick="showPage('home')" class="active">O que é o Dia</a></li>
+                        <li><a href="#" onclick="showPage('principios')">Princípios e Valores</a></li>
+                        <li><a href="#" onclick="showPage('ramos')">Ramos do Coop</a></li>
+                        <li><a href="#" onclick="showPage('historia')">História</a></li>
+                        <li><a href="#" onclick="showPage('contato')">Contato</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Página: O que é o Dia -->
+        <div class="page active" id="home">
+            <div class="hero">
+                <h1>Dia Internacional do Cooperativismo</h1>
+                <p>Celebrando a solidariedade e a cooperação mundial</p>
+            </div>
+            
+            <div class="page-content">
+                <div class="content-section">
+                    <h2>O que é o Dia Internacional das Cooperativas</h2>
+                    <p>O <strong>Dia Internacional das Cooperativas</strong> é um dia comemorado no primeiro sábado de julho desde 1995, oficialmente instituído em 1992 pela Assembleia Geral das Nações Unidas.</p>
+                    
+                    <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=800&h=400&fit=crop" alt="Cooperação e trabalho em equipe" class="content-image">
+                    
+                    <h3>Proclamação</h3>
+                    <p>O Dia Internacional das Cooperativas foi oficialmente proclamado em 16 de dezembro de 1992 pela Assembleia Geral das Nações Unidas. A proclamação visa destacar a importância das cooperativas na promoção dos valores de solidariedade, eficiência econômica, igualdade e paz mundial, alinhando-os para os Objetivos de Desenvolvimento Sustentável.</p>
+                    
+                    <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=800&h=400&fit=crop" alt="Solidariedade e ajuda mútua" class="content-image">
+                    
+                    <h3>Celebração</h3>
+                    <p>A data é comemorada anualmente no primeiro sábado de julho. A escolha desse dia se deve à tradição da Aliança Cooperativa Internacional (ACI) de comemorar as cooperativas nesse dia desde 1923. A primeira celebração desse dia foi realizada em 1995 para coincidir com o centenário da ACI. Em 2012, foi celebrado o Ano Internacional das Cooperativas, destacando uma década de progresso desde então.</p>
+                    
+                    <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=400&fit=crop" alt="Celebração e união" class="content-image">
+                </div>
+            </div>
+        </div>
+
+        <!-- Página: Princípios e Valores -->
+        <div class="page" id="principios">
+            <div class="page-content">
+                <h1 class="page-title">Princípios e Valores do Cooperativismo</h1>
+                
+                <div class="content-section">
+                    <h2>Os Sete Princípios Cooperativistas</h2>
+                    <p>Os princípios cooperativistas são as diretrizes que orientam as cooperativas em todo o mundo, estabelecidos pela Aliança Cooperativa Internacional (ACI) e seguidos pela Organização das Cooperativas Brasileiras (OCB).</p>
+                    
+                    <div class="principios-list">
+                        <div class="principio-item">
+                            <h4>1º Princípio: Adesão Voluntária e Livre</h4>
+                            <p>As cooperativas são organizações voluntárias, abertas a todas as pessoas capazes de usar seus serviços e assumir responsabilidades, sem discriminação.</p>
+                        </div>
+                        
+                        <div class="principio-item">
+                            <h4>2º Princípio: Gestão Democrática</h4>
+                            <p>As cooperativas são organizações democráticas controladas por seus membros, que participam ativamente na formulação de políticas e na tomada de decisões.</p>
+                        </div>
+                        
+                        <div class="principio-item">
+                            <h4>3º Princípio: Participação Econômica dos Membros</h4>
+                            <p>Os membros contribuem equitativamente e controlam democraticamente o capital de suas cooperativas.</p>
+                        </div>
+                        
+                        <div class="principio-item">
+                            <h4>4º Princípio: Autonomia e Independência</h4>
+                            <p>As cooperativas são organizações autônomas, de ajuda mútua, controladas por seus membros.</p>
+                        </div>
+                        
+                        <div class="principio-item">
+                            <h4>5º Princípio: Educação, Formação e Informação</h4>
+                            <p>As cooperativas promovem a educação e a formação de seus membros, dirigentes e funcionários.</p>
+                        </div>
+                        
+                        <div class="principio-item">
+                            <h4>6º Princípio: Intercooperação</h4>
+                            <p>As cooperativas servem de forma mais eficaz aos seus membros e dão mais força ao movimento cooperativo através da cooperação entre cooperativas.</p>
+                        </div>
+                        
+                        <div class="principio-item">
+                            <h4>7º Princípio: Interesse pela Comunidade</h4>
+                            <p>As cooperativas trabalham para o desenvolvimento sustentável das suas comunidades através de políticas aprovadas pelos membros.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="content-section">
+                    <h2>Valores Cooperativistas</h2>
+                    <p>As cooperativas baseiam-se nos valores da <strong>ajuda mútua</strong>, <strong>responsabilidade</strong>, <strong>democracia</strong>, <strong>igualdade</strong>, <strong>equidade</strong> e <strong>solidariedade</strong>. Na tradição de seus fundadores, os membros das cooperativas acreditam nos valores éticos da <strong>honestidade</strong>, <strong>transparência</strong>, <strong>responsabilidade social</strong> e <strong>preocupação pelo próximo</strong>.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Página: Ramos do Cooperativismo -->
+        <div class="page" id="ramos">
+            <div class="page-content">
+                <h1 class="page-title">Os Ramos do Cooperativismo</h1>
+                
+                <div class="content-section">
+                    <h2>Ramos do Cooperativismo no Brasil</h2>
+                    <p>Segundo a Organização das Cooperativas Brasileiras (OCB), o cooperativismo brasileiro está organizado em 13 ramos distintos, cada um com suas características específicas:</p>
+                    
+                    <div class="ramos-grid">
+                        <div class="ramo-card">
+                            <span class="ramo-icon">🏠</span>
+                            <h3>Habitacional</h3>
+                            <p>Cooperativas que proporcionam aos cooperados a aquisição da casa própria, além da construção, manutenção e administração de conjuntos habitacionais.</p>
+                        </div>
+                        
+                        <div class="ramo-card">
+                            <span class="ramo-icon">💰</span>
+                            <h3>Crédito</h3>
+                            <p>Cooperativas que prestam serviços de intermediação financeira aos cooperados, como empréstimos, financiamentos e investimentos.</p>
+                        </div>
+                        
+                        <div class="ramo-card">
+                            <span class="ramo-icon">🌾</span>
+                            <h3>Agropecuário</h3>
+                            <p>Cooperativas de produtores rurais que se dedicam às atividades agropecuárias, agroindustriais e florestais.</p>
+                        </div>
+                        
+                        <div class="ramo-card">
+                            <span class="ramo-icon">🏭</span>
+                            <h3>Trabalho</h3>
+                            <p>Cooperativas que organizam a prestação de serviços especializados de seus cooperados no mercado.</p>
+                        </div>
+                        
+                        <div class="ramo-card">
+                            <span class="ramo-icon">🏥</span>
+                            <h3>Saúde</h3>
+                            <p>Cooperativas que trabalham na preservação e promoção da saúde humana, incluindo médicos, dentistas e outros profissionais.</p>
+                        </div>
+                        
+                        <div class="ramo-card">
+                            <span class="ramo-icon">🚛</span>
+                            <h3>Transporte</h3>
+                            <p>Cooperativas que prestam serviços de transporte de cargas e passageiros, além de serviços relacionados.</p>
+                        </div>
+                        
+                        <div class="ramo-card">
+                            <span class="ramo-icon">🎓</span>
+                            <h3>Educacional</h3>
+                            <p>Cooperativas de profissionais da educação que atuam em todos os níveis de ensino, da educação infantil ao ensino superior.</p>
+                        </div>
+                        
+                        <div class="ramo-card">
+                            <span class="ramo-icon">🏪</span>
+                            <h3>Consumo</h3>
+                            <p>Cooperativas que se dedicam à compra em comum de produtos e serviços para seus cooperados.</p>
+                        </div>
+                        
+                        <div class="ramo-card">
+                            <span class="ramo-icon">🎯</span>
+                            <h3>Especial</h3>
+                            <p>Cooperativas constituídas por pessoas que precisam ser tuteladas ou que se encontram em situação de desvantagem.</p>
+                        </div>
+                        
+                        <div class="ramo-card">
+                            <span class="ramo-icon">⚽</span>
+                            <h3>Esporte</h3>
+                            <p>Cooperativas que se dedicam à prática esportiva de modalidades reconhecidas pelo Sistema Nacional do Desporto.</p>
+                        </div>
+                        
+                        <div class="ramo-card">
+                            <span class="ramo-icon">🎨</span>
+                            <h3>Cultural</h3>
+                            <p>Cooperativas que se dedicam às atividades culturais, artísticas e de entretenimento.</p>
+                        </div>
+                        
+                        <div class="ramo-card">
+                            <span class="ramo-icon">🏘️</span>
+                            <h3>Infraestrutura</h3>
+                            <p>Cooperativas que prestam serviços de infraestrutura aos cooperados, como energia elétrica, telecomunicações e saneamento.</p>
+                        </div>
+                        
+                        <div class="ramo-card">
+                            <span class="ramo-icon">🏖️</span>
+                            <h3>Turismo e Lazer</h3>
+                            <p>Cooperativas que se dedicam à prestação de serviços turísticos e de lazer aos cooperados.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Página: História -->
+        <div class="page" id="historia">
+            <div class="page-content">
+                <h1 class="page-title">História do Cooperativismo</h1>
+                
+                <div class="content-section">
+                    <h2>A Origem do Movimento Cooperativista</h2>
+                    <p>O cooperativismo moderno nasceu em 1844, na cidade de Rochdale, Inglaterra, como uma resposta às condições precárias de vida e trabalho impostas pela Revolução Industrial.</p>
+                    
+                    <img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=800&h=400&fit=crop" alt="Rochdale - berço do cooperativismo" class="content-image">
+                    
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-year">1844</div>
+                                <h3>Fundação da Rochdale Society</h3>
+                                <p>28 tecelões fundaram a "Rochdale Society of Equitable Pioneers" (Sociedade dos Probos Pioneiros de Rochdale), estabelecendo os primeiros princípios cooperativistas que perduram até hoje.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-year">1895</div>
+                                <h3>Criação da Aliança Cooperativa Internacional (ACI)</h3>
+                                <p>Fundada em Londres, a ACI tornou-se a organização internacional que representa o movimento cooperativo mundial, unindo cooperativas de todos os setores.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-year">1902</div>
+                                <h3>Primeira Cooperativa no Brasil</h3>
+                                <p>Fundação da primeira cooperativa brasileira em Nova Petrópolis, Rio Grande do Sul, pelos imigrantes alemães.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-year">1969</div>
+                                <h3>Criação da OCB</h3>
+                                <p>Fundação da Organização das Cooperativas Brasileiras (OCB), que representa e desenvolve o cooperativismo nacional.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-year">1992</div>
+                                <h3>Proclamação do Dia Internacional</h3>
+                                <p>A ONU proclama o Dia Internacional das Cooperativas, reconhecendo a importância do movimento cooperativista mundial.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <div class="timeline-content">
+                                <div class="timeline-year">2012</div>
+                                <h3>Ano Internacional das Cooperativas</h3>
+                                <p>A ONU declara 2012 como o Ano Internacional das Cooperativas, destacando o papel das cooperativas na construção de um mundo melhor.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=800&h=400&fit=crop" alt="Cooperação e trabalho em equipe ao longo da história" class="content-image">
+                    
+                    <h3>Os Pioneiros de Rochdale</h3>
+                    <p>Os 28 tecelões que fundaram a primeira cooperativa moderna enfrentavam péssimas condições de trabalho, baixos salários e produtos adulterados. Eles estabeleceram princípios que se tornaram a base do cooperativismo mundial: controle democrático, participação econômica, educação e preocupação com a comunidade.</p>
+                    
+                    <img src="https://images.unsplash.com/photo-1577563908411-5077b6dc7624?w=800&h=400&fit=crop" alt="Espírito de cooperação e solidariedade" class="content-image">
+                    
+                    <h3>Expansão Mundial</h3>
+                    <p>A partir de Rochdale, o movimento cooperativista se espalhou rapidamente pelo mundo. Cada país adaptou os princípios cooperativistas às suas realidades locais, mantendo sempre os valores fundamentais de solidariedade, democracia e ajuda mútua.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Página: Contato -->
+        <div class="page" id="contato">
+            <div class="page-content">
+                <h1 class="page-title">Entre em Contato</h1>
+                
+                <div class="content-section">
+                    <h2>Fale Conosco</h2>
+                    <p>Tem alguma dúvida sobre o cooperativismo ou quer saber mais sobre como participar de uma cooperativa? Entre em contato conosco!</p>
+                    
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nome Completo *</label>
+                            <input type="text" id="name" name="name" required>
+                            <div class="error-message">Por favor, informe seu nome completo.</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">E-mail *</label>
+                            <input type="email" id="email" name="email" required>
+                            <div class="error-message">Por favor, informe um e-mail válido.</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Telefone</label>
+                            <input type="tel" id="phone" name="phone">
+                            <div class="error-message">Por favor, informe um telefone válido.</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Assunto *</label>
+                            <input type="text" id="subject" name="subject" required>
+                            <div class="error-message">Por favor, informe o assunto.</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Mensagem *</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                            <div class="error-message">Por favor, escreva sua mensagem.</div>
+                        </div>
+                        
+                        <button type="submit" class="btn-submit">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2024 Dia Internacional do Cooperativismo. Desenvolvido para fins educacionais.</p>
+            <p>Cooperativismo: Construindo um mundo melhor através da solidariedade e ajuda mútua.</p>
+        </footer>
+    </div>
+
+    <!-- Botão Voltar ao Topo -->
+    <button class="back-to-top" onclick="scrollToTop()">↑</button>
+
+    <!-- JavaScript -->
+    <script>
+        // Controle de navegação entre páginas
+        function showPage(pageId) {
+            // Ocultar todas as páginas
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            // Mostrar página selecionada
+            document.getElementById(pageId).classList.add('active');
+            
+            // Atualizar links ativos
+            const navLinks = document.querySelectorAll('.nav-links a');
+            navLinks.forEach(link => link.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Fechar menu mobile se estiver aberto
+            const navLinks2 = document.querySelector('.nav-links');
+            navLinks2.classList.remove('active');
+            
+            // Rolar para o topo
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Toggle do menu mobile
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+        }
+
+        // Validação do formulário
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            let isValid = true;
+            const formGroups = document.querySelectorAll('.form-group');
+            
+            // Remover classes de erro anteriores
+            formGroups.forEach(group => group.classList.remove('error'));
+            
+            // Validar nome
+            const name = document.getElementById('name').value.trim();
+            if (name.length < 2) {
+                document.getElementById('name').parentElement.classList.add('error');
+                isValid = false;
+            }
+            
+            // Validar e-mail
+            const email = document.getElementById('email').value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                document.getElementById('email').parentElement.classList.add('error');
+                isValid = false;
+            }
+            
+            // Validar telefone (se preenchido)
+            const phone = document.getElementById('phone').value.trim();
+            if (phone && phone.length < 10) {
+                document.getElementById('phone').parentElement.classList.add('error');
+                isValid = false;
+            }
+            
+            // Validar assunto
+            const subject = document.getElementById('subject').value.trim();
+            if (subject.length < 3) {
+                document.getElementById('subject').parentElement.classList.add('error');
+                isValid = false;
+            }
+            
+            // Validar mensagem
+            const message = document.getElementById('message').value.trim();
+            if (message.length < 10) {
+                document.getElementById('message').parentElement.classList.add('error');
+                isValid = false;
+            }
+            
+            if (isValid) {
+                // Simular envio
+                const submitBtn = document.querySelector('.btn-submit');
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Enviando...';
+                
+                setTimeout(() => {
+                    alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
+                    document.getElementById('contactForm').reset();
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Enviar Mensagem';
+                }, 2000);
+            }
+        });
+
+        // Botão voltar ao topo
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Mostrar/ocultar botão voltar ao topo
+        window.addEventListener('scroll', function() {
+            const backToTop = document.querySelector('.back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        // Efeito de paralaxe no hero
+        window.addEventListener('scroll', function() {
+            const hero = document.querySelector('.hero');
+            if (hero) {
+                const scrolled = window.pageYOffset;
+                const speed = 0.5;
+                hero.style.transform = `translateY(${scrolled * speed}px)`;
+            }
+        });
+
+        // Animação de entrada dos elementos
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'slideInUp 0.8s ease forwards';
+                }
+            });
+        }, observerOptions);
+
+        // Observar elementos para animação
+        document.querySelectorAll('.content-section, .ramo-card, .principio-item, .timeline-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Adicionar animação CSS
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Efeito de digitação no título principal
+        function typeWriter(element, text, speed = 100) {
+            let i = 0;
+            element.innerHTML = '';
+            
+            function type() {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(type, speed);
+                }
+            }
+            
+            type();
+        }
+
+        // Aplicar efeito de digitação quando a página carrega
+        window.addEventListener('load', function() {
+            const heroTitle = document.querySelector('.hero h1');
+            if (heroTitle) {
+                const originalText = heroTitle.textContent;
+                typeWriter(heroTitle, originalText, 80);
+            }
+        });
+
+        // Contador animado para estatísticas (se necessário)
+        function animateValue(element, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                element.innerHTML = Math.floor(progress * (end - start) + start);
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        // Melhorar acessibilidade
+        document.addEventListener('keydown', function(e) {
+            // Navegação por teclado
+            if (e.key === 'Escape') {
+                // Fechar menu mobile
+                document.querySelector('.nav-links').classList.remove('active');
+            }
+        });
+
+        // Adicionar foco visível para navegação por teclado
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-nav');
+            }
+        });
+
+        document.addEventListener('mousedown', function() {
+            document.body.classList.remove('keyboard-nav');
+        });
+
+        // Lazy loading para imagens
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        observer.unobserve(img);
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+
+        // Adicionar suporte a gestos touch para mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        document.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            handleGesture();
+        });
+
+        function handleGesture() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    // Swipe left - próxima página
+                    // Implementar lógica se necessário
+                } else {
+                    // Swipe right - página anterior
+                    // Implementar lógica se necessário
+                }
+            }
+        }
+
+        // Adicionar suporte PWA básico
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                // Registrar service worker se disponível
+                // navigator.serviceWorker.register('/sw.js');
+            });
+        }
+
+        // Melhorar performance
+        const debounce = (func, wait) => {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        };
+
+        // Aplicar debounce ao scroll
+        window.addEventListener('scroll', debounce(() => {
+            // Lógica de scroll otimizada
+        }, 10));
+    </script>
+</body>
+</html>
